@@ -26,3 +26,15 @@ def submitSignup():
     if not validatePassword(password1, password2):
         messagebox.showerror("Error", "Passwords do not match")
         return
+   
+    # save user info in db
+    conn = sqlite3.connect("login.db")
+    cursor = conn.cursor()
+    cursor.execute("CREATE TABLE IF NOT EXISTS users (email TEXT, password TEXT)")
+    cursor.execute("INSERT INTO users VALUES (?, ?)", (email, password1))
+    conn.commit()
+    conn.close()
+    
+    # message provided to user to prove db submission
+    messagebox.showinfo("Success", "Sign-up successful!")
+
