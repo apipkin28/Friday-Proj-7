@@ -38,3 +38,27 @@ def submitSignup():
     # message provided to user to prove db submission
     messagebox.showinfo("Success", "Sign-up successful!")
 
+# GUI window
+root = tk.Tk()
+root.title("Sign Up")
+
+# create and place widgets
+label_email = tk.Label(root, text="Email:")
+label_email.grid(row=0, column=0, padx=10, pady=5, sticky="e")
+entry_email = tk.Entry(root)
+entry_email.grid(row=0, column=1, padx=10, pady=5)
+
+label_password1 = tk.Label(root, text="Password:")
+label_password1.grid(row=1, column=0, padx=10, pady=5, sticky="e")
+entry_password1 = tk.Entry(root, show="*")
+entry_password1.grid(row=1, column=1, padx=10, pady=5)
+
+label_password2 = tk.Label(root, text="Confirm Password:")
+label_password2.grid(row=2, column=0, padx=10, pady=5, sticky="e")
+entry_password2 = tk.Entry(root, show="*")
+entry_password2.grid(row=2, column=1, padx=10, pady=5)
+
+button_submit = tk.Button(root, text="Submit", command=submitSignup)
+button_submit.grid(row=3, columnspan=2, padx=10, pady=10)
+
+root.mainloop()
