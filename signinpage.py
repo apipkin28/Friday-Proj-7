@@ -40,4 +40,8 @@ entry_password.grid(row=1, column=1, padx=10, pady=5)
 button_signin = tk.Button(root, text="Sign In", command=signin)
 button_signin.grid(row=2, columnspan=2, padx=10, pady=10)
 
+# label display sign-in result
+result_label = tk.Label(root, text="", fg="green")
+result_label.grid(row=3, columnspan=2, padx=10, pady=5)
 
+root.mainloop()
