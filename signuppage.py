@@ -16,3 +16,13 @@ def submitSignup():
     email = entry_email.get()
     password1 = entry_password1.get()
     password2 = entry_password2.get()
+
+    # validate email format
+    if not validateEmail(email):
+        messagebox.showerror("Error", "Invalid email address format")
+        return
+    
+    # validate password match
+    if not validatePassword(password1, password2):
+        messagebox.showerror("Error", "Passwords do not match")
+        return
