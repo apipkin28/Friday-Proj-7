@@ -1,6 +1,7 @@
 import tkinter as tk
 from tkinter import messagebox
 import sqlite3
+import os
 
 # defining function to handle sign-in
 def signin():
@@ -21,6 +22,10 @@ def signin():
         result_label.config(text="Email or password incorrect.", fg="red")
 
     conn.close()
+
+def switch_to_signup():
+    root.destroy()
+    os.system("signuppage.py")
 
 # GUI window
 root = tk.Tk()
@@ -43,5 +48,8 @@ button_signin.grid(row=2, columnspan=2, padx=10, pady=10)
 # label display sign-in result
 result_label = tk.Label(root, text="", fg="green")
 result_label.grid(row=3, columnspan=2, padx=10, pady=5)
+
+button_switch_to_signup = tk.Button(root, text="Don't have an account? Sign up here.", command=switch_to_signup)
+button_switch_to_signup.grid(row=4, columnspan=2, padx=10, pady=5)
 
 root.mainloop()

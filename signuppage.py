@@ -1,6 +1,7 @@
 import tkinter as tk
 from tkinter import messagebox #for displaying messages to user
 import sqlite3
+import os
 
 # defining function for validating email format
 def validateEmail(email):
@@ -38,6 +39,10 @@ def submitSignup():
     # message provided to user to prove db submission
     messagebox.showinfo("Success", "Sign-up successful!")
 
+def switch_to_signin():
+    root.destroy()
+    os.system("signinpage.py")
+
 # GUI window
 root = tk.Tk()
 root.title("Sign Up")
@@ -60,5 +65,8 @@ entry_password2.grid(row=2, column=1, padx=10, pady=5)
 
 button_submit = tk.Button(root, text="Submit", command=submitSignup)
 button_submit.grid(row=3, columnspan=2, padx=10, pady=10)
+
+button_switch_to_signin = tk.Button(root, text="Already have an account? Sign in here.", command=switch_to_signin)
+button_switch_to_signin.grid(row=4, columnspan=2, padx=10, pady=5)
 
 root.mainloop()
